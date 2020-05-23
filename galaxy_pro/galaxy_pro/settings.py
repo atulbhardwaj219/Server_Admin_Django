@@ -25,7 +25,7 @@ SECRET_KEY = 'a1x9p(6mb&yyw@(c#l&i^5$(txb3-ymv8=uclz*vwbyno@mru^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['172.42.42.105']
 
 
 # Application definition
@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'cloudpanel',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': 'Root@1234',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
@@ -124,7 +124,7 @@ USE_TZ = True
 
 STATIC_URL = '/assets/static/'
 
-STATIC_ROOT='D:/new_django_projects/galaxy_pro/galaxy_pro'
+STATIC_ROOT='/root/Server_Admin_Django/galaxy_pro/'
 STATICFILES_DIRS=(os.path.join(BASE_DIR,'assets'),)
 CELERY_BROKER_URL = 'amqp://localhost'
 
