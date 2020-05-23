@@ -1,0 +1,127 @@
+{% extends "layout_user.html" %}
+{% block title %}Shortcodes{% endblock %}
+{% block content %}
+
+{{ msg }}
+	      <div class="row">
+
+	      	<div class="span12">
+
+	      		<div class="widget ">
+
+	      			<div class="widget-header">
+	      				<i class="icon-cog"></i>
+	      				<h3>Enter Instance Details</h3>
+	  				</div> <!-- /widget-header -->
+
+					<div class="widget-content">	<br>
+
+							<div class="">
+								<div class="tab-pane" id="formcontrols">
+								<form id="edit-profile" class="form-horizontal" method="POST">
+									{% csrf_token %}
+									<fieldset>
+
+										<div class="control-group">
+											<label class="control-label" for="username">Instance Name</label>
+											<div class="controls">
+												<input type="text" class="span6" name="Instancename" value="XYZ">
+												<p class="help-block">Your Instance Name is for logging in and cannot be changed.</p>
+											</div> <!-- /controls -->
+										</div> <!-- /control-group -->
+
+
+										<div class="control-group">
+											<label class="control-label" for="firstname">IP</label>
+											<div class="controls">
+												<input type="text" class="span6" name="ip" value="192.168.X.X">
+											</div> <!-- /controls -->
+										</div> <!-- /control-group -->
+
+
+										<div class="control-group">
+											<label class="control-label" for="lastname">Port</label>
+											<div class="controls">
+												<input type="text" class="span6" name="port" value="22">
+											</div> <!-- /controls -->
+										</div> <!-- /control-group -->
+
+
+										<div class="control-group">
+											<label class="control-label">UserName</label>
+											<div class="controls">
+												<input type="text" class="span4" name="username" value="root">
+											</div> <!-- /controls -->
+										</div> <!-- /control-group -->
+
+
+										<br /><br />
+
+										<div class="control-group">
+											<label class="control-label" for="password1">Password</label>
+											<div class="controls">
+												<input type="password" class="span4" name="password" value="thisispasd">
+											</div> <!-- /controls -->
+										</div> <!-- /control-group -->
+
+
+										<div class="control-group">
+											<label class="control-label" for="password2">Confirm</label>
+											<div class="controls">
+												<input type="password" class="span4" name="password2" value="thisispasd">
+											</div> <!-- /controls -->
+										</div> <!-- /control-group -->
+
+										<div class="control-group">
+											<label class="control-label" for="email">OsType</label>
+											<div class="controls">
+												<input type="text" class="span4" name="OsType">
+											</div> <!-- /controls -->
+										</div> <!-- /control-group -->
+
+                                	<!--        <div class="control-group">
+											<label class="control-label">Checkboxes</label>
+
+
+                                            <div class="controls">
+                                            <label class="checkbox inline">
+                                              <input type="checkbox"> I agree the terms and condition
+                                            </label>
+
+
+                                          </div>
+										</div>
+										control-group -->
+
+										 <br />
+
+
+										<div class="form-actions">
+											<button type="submit" class="btn btn-primary">Save</button>
+											<button class="btn">Cancel</button>
+										</div> <!-- /form-actions -->
+									</fieldset>
+								</form>
+								</div>
+
+
+
+
+
+						</div>
+
+
+
+
+
+					</div> <!-- /widget-content -->
+
+				</div> <!-- /widget -->
+
+		    </div> <!-- /span8 -->
+
+
+
+
+	      </div> <!-- /row -->
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "layout_user.html" %}
+{% block title %}DjangoX{% endblock %}
+{% block content %}
+{% load staticfiles %}
+<div class="row">
+
+
+        <!-- /span60px>
+        <div class="spa60">
+
+          <div class="widget widget-table action-table">
+            <div class="widget-header"> <i class="icon-th-list"></i>
+              <h3>Instances List</h3>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content" >
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th> InstanceName </th>
+                    <th> IP </th>
+                      <th> status </th>
+                    <th class="td-actions">request</th>
+                    <th class="td-actions">Request_time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for s in sv %}
+                  <tr>
+                    <td> {{ s.Instancename}} </td>
+                    <td> {{ s.ip }}</td>
+
+                    {% if s.status == 'Queue' %}
+                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-warning">{{ s.status  }}</a>
+                    {% endif %}
+
+                    {% if s.status == 'Inprogress' %}
+                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn btn-Info">{{ s.status  }}</a>
+                    {% endif %}
+
+                    {% if s.status == 'Completed' %}
+                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success">{{ s.status  }}</a>
+                    {% endif %}
+
+                    {% if s.status == 'Failed' %}
+                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-failed">{{ s.status  }}</a>
+                    {% endif %}
+
+                    <td> {{ s.request }}</td>
+                      <td> {{ s.requesttime }}</td>
+                  </tr>
+
+{% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!-- /widget-content -->
+          </div>
+          <!-- /widget -->
+
+        </div>
+        <!-- /span6 -->
+      </div>
+      <!-- /row -->
+{% endblock %}
+{% block extrajs %}
+
+{% endblock %}
