@@ -122,9 +122,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/assets/static/'
+STATIC_URL = '/root/Server_Admin_Django/galaxy_pro/assets/'
 
-STATIC_ROOT='/root/Server_Admin_Django/galaxy_pro/'
+STATIC_ROOT='/root/Server_Admin_Django/galaxy_pro'
+
 STATICFILES_DIRS=(os.path.join(BASE_DIR,'assets'),)
 CELERY_BROKER_URL = 'amqp://localhost'
 

@@ -27,21 +27,19 @@ def startstop(ip,port,username,password,latestid,action):
 
 
     if action== 'start':
-          # change field
-        stdin, stdout, stderr=ssh.exec_command('ansible -m command -a ''"systemctl start httpd"'' --limit 192.168.88.4 --become devops')
-
+        # change field
+        stdin, stdout, stderr=ssh.exec_command('sudo systemctl start crond')
         y=stdout.read()
-        print(y)
+       
 
         t = Request.objects.get(id=latestid)
         t.status ='Completed'
         t.save()
-         # change fie+ "        t.save()
         return y
 
     if action== 'stop':
 
-        stdin, stdout, stderr=ssh.exec_command("./stop.sh")
+        stdin, stdout, stderr=ssh.exec_command("sudo systemctl stop crond")
         y=str(stdout.read())
         t = Request.objects.get(id=latestid)
         t.status ='Completed'  # change field
@@ -49,7 +47,7 @@ def startstop(ip,port,username,password,latestid,action):
         return y
 
     if action== 'restart':
-        stdin, stdout, stderr=ssh.exec_command("./restart.sh")
+        stdin, stdout, stderr=ssh.exec_command("sudo systemctl restart crond")
         y=str(stdout.read())
         t = Request.objects.get(id=latestid)
         t.status ='Completed'  # change field
@@ -57,7 +55,7 @@ def startstop(ip,port,username,password,latestid,action):
         return y
 
     if action== 'enable':
-        stdin, stdout, stderr=ssh.exec_command("./enable.sh")
+        stdin, stdout, stderr=ssh.exec_command("sudo systemctl enable crond")
         y=str(stdout.read())
         t = Request.objects.get(id=latestid)
         t.status ='Completed'  # change field

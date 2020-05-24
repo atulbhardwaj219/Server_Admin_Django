@@ -60,7 +60,6 @@ def ShowInstances(request):
 
 
 def StartStop(request):
-    print('echo ansible -m command -a ''"systemctl start httpd"'' --limit 192.168.88.4 --become devops > start.sh | cat start.sh')
     s=Servers.objects.all()
     if request.method=='POST':
         msg=request.POST.get('instancename')
@@ -82,7 +81,7 @@ def StartStop(request):
         print("Latest ID is  :",latestid)
 
 
-        y=startstop.delay("192.168.88.3",22,"vagrant","vagrant",latestid,action)
+        y=startstop.delay(d.ip,d.port,d.username,d.password,latestid,action)
         print("yo",y)
         messages.success(request, 'Show Progress by go to Request History Page')
         return redirect('home1')
